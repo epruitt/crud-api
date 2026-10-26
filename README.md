@@ -91,7 +91,6 @@ The infrastructure is split into two CDK stacks:
 | Decision | Why |
 |----------|-----|
 | **Serverless architecture** (API Gateway + Lambda + DynamoDB) | No servers to patch or scale, and cost is near zero when idle. A good fit for a small, spiky CRUD workload. |
-| **HTTP API instead of REST API** | HTTP APIs are cheaper and lower latency than REST APIs. This project doesn't need REST-only features such as API keys, usage plans, or request validation models. |
 | **Two stacks: data and compute** | The stateful resource (DynamoDB) is separated from the stateless ones (Lambda, API). The API can be redeployed or destroyed without touching the table's lifecycle. `CrudApiStack` declares an explicit dependency so deployment order is correct. |
 | **Cross-stack reference through props** | The table is passed to `CrudApiStack` as a typed prop (`dynamodbStack.usersTable`) instead of a hardcoded name or ARN. CDK resolves the reference, so nothing is duplicated or can drift. |
 | **Single Lambda handling all routes** | One function with internal routing on method and path keeps the code in one place and means one deployment artifact and one set of logs. Routes are still declared individually in API Gateway, so the function could be split later. |
