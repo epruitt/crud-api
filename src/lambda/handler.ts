@@ -88,19 +88,19 @@ async function createUsers(
 
   const userId = uuidv4();
   
-//   const user = {
-//     id: userId,
-//     name,
-//     email,
-//     createdAt: new Date().toISOString(),
-//   };
-
   const user = {
     id: userId,
-    name: faker.person.fullName(),
-    email: faker.internet.email(),
+    name,
+    email,
     createdAt: new Date().toISOString(),
   };
+
+//   const user = {
+//     id: userId,
+//     name: faker.person.fullName(),
+//     email: faker.internet.email(),
+//     createdAt: new Date().toISOString(),
+//   };
 
   await dynamoDB.send(
     new PutCommand({

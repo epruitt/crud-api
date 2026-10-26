@@ -14,10 +14,10 @@ Content-Type: application/json
 }
 
 ### Get a user
-GET {{URL}}/users/1
+GET {{URL}}/users/ea1e0d0-c5d2-43be-ad06-07847771eb69
 
 ### Update a user
-PUT {{URL}}/users/1
+PUT {{URL}}/users/ea1e0d0-c5d2-43be-ad06-07847771eb69
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ### Delete a user
-DELETE {{URL}}/users/1
+DELETE {{URL}}/users/ea1e0d0-c5d2-43be-ad06-07847771eb69
